@@ -5,7 +5,7 @@ of an AspNetCore lambda based application.
 
 ## How it works
 
-Best thing to do is run / debug / step through, the `LambdaSimulatorTests` to
+Best thing to do is run / debug / step through, the [`LambdaSimulatorTests`](https://github.com/damianh/anc-lambda-simulator/blob/master/src/AncLambdaSim.Tests/LambdaSimulatorTests.cs#L23) to
 see how this works.
 
  1. Each HTTP request is handled by precisely one AspNetCore function at a time.
