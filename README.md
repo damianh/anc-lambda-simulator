@@ -11,7 +11,7 @@ see how this works.
  1. Each HTTP request is handled by precisely one AspNetCore function at a time.
 
  1. When a request arrives at the simulator, it checks for an available
-    `ServiceInstance` which represents a warm idle function.
+    `ServerInstance` which represents a warm idle function.
 
  1. If none available, a new `ServerInstance` is attempted to be created. If the
     max concurrency limit is reached no more are created and the client gets a
