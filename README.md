@@ -24,7 +24,7 @@ see how this works.
     `instanceLifespan` and if older, then it is disposed and a new one created.
     If younger, then it is reused. Then the request is delayed by
     `requestExecutionDuration` before finally being handled. Real world
-    indicates this is typcically ~100ms.
+    indicates this is typically ~100ms.
 
  1. When a request is completed, the `ServerInstance` is placed back in the pool
     (implemented as a queue) for re-use by subsequent requests.
@@ -48,7 +48,7 @@ see how this works.
     entirely later. Re-activating from hibernation is typically ~3 seconds.
 
  1. Concurrent requests to a de-activated functon will result in multiple
-    functions being stated - all of them cold starts with associated delays.
+    functions being started - all of them cold starts with associated delays.
 
 ## Things not considered:
 
