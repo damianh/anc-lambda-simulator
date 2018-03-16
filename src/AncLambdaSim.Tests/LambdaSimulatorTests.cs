@@ -28,7 +28,8 @@ namespace AncLambdaSim.Tests
                maximum permitted concurrency, when the requests are made within
                a window, some of the responses will be 200 OK, others will be
                429 Too Many Requests. Due to the parallel operations and varying
-               executions, the exact numbers are not deterministic.
+               executions and the core count of of your machine, the exact
+               numbers are not deterministic and will vary.
              */
 
             CreateWebHostBuilder createWebHostBuilder = () =>
@@ -37,11 +38,16 @@ namespace AncLambdaSim.Tests
 
             // Tweaking these values will result is differing distributions of
             // 200 and 429 responses.
+            
+            // The delay experienced when cold starting a lambda function. Realy
+            // world typically 3-8 seconds depending on cold start Olonger) or
+            // from hibernation (shorter).
+            var coldStartDelay = 300;
 
-            // increase to reduce the count of 429s. No 429s when >= numberOfRequests
+            // Increase to reduce the count of 429s. No 429s when >= numberOfRequests
             var maxConcurrency = 10;
 
-            // should be longer than coldStartDelay otherwise no instances are
+            // Should be longer than coldStartDelay otherwise no instances are
             // re-used and less than maxDelayBeforeRequest to simulate instance
             // disposing and new instances statting. Typically an active instance
             // will be kept warm for much longer than this.
@@ -52,11 +58,6 @@ namespace AncLambdaSim.Tests
 
             //  The maxium delay before a request is issued.
             var maxDelayBeforeRequest = 1000;
-
-            // The delay experienced when cold starting a lambda function. Realy
-            // world typically 3-8 seconds depending on cold start Olonger) or
-            // from hibernation (shorter).
-            var coldStartDelay = 300;
 
             // The time taken to execute a request. Typically 30-150ms.
             var requestExecutionDuration = 9; 
