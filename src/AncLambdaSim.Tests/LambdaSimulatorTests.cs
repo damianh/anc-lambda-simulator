@@ -23,7 +23,7 @@ namespace AncLambdaSim.Tests
         public async Task LoadTest()
         {
             /* The very nature of this test is non-deterministic. AWS controls
-               the lifecycle of a function instance but is entirely that is
+               the lifecycle of a function instance that is
                entirely at the behest of AWS. Given a set of values around
                maximum permitted concurrency, when the requests are made within
                a window, some of the responses will be 200 OK, others will be
