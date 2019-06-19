@@ -17,7 +17,7 @@ see how this works.
     max concurrency limit is reached no more are created and the client gets a
     `429 Too Many Requests`.
 
- 1. If one is created, the _first_ request to it is delayed by the
+ 1. If one is created, the _first_ request is delayed by the
     `coldStartDelay`. Real world indicates this is typically ~2-8 seconds depending
     on the RAM (and CPU) allocated to the lambda.
 
